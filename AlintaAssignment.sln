@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlintaAssignment.Data", "Sh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlintaAssignment.Api", "AlintaAssignment.Api\AlintaAssignment.Api.csproj", "{F260C97F-F9C9-41D5-AC1F-C4A33DF7B100}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlintaAssignment.Store", "Shared\AlintaAssignment.Repositories\AlintaAssignment.Store.csproj", "{F19B40CC-D500-4B6D-A023-F07BDD9F47F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlintaAssignment.Store", "Shared\AlintaAssignment.Store\AlintaAssignment.Store.csproj", "{F19B40CC-D500-4B6D-A023-F07BDD9F47F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlintaAssignment.DomainLogic", "Shared\AlintaAssignment.DomainLogic\AlintaAssignment.DomainLogic.csproj", "{7C5BB526-F7E9-4EFA-98A8-35A7AECA0F3F}"
 EndProject
