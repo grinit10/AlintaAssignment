@@ -21,7 +21,8 @@ namespace AlintaAssignment.Data
             var modifiedIds = new List<Guid>();
             var modifiedEntries = ChangeTracker.Entries()
               .Where(x => x.Entity is BaseModel
-                  && (x.State == EntityState.Added || x.State == EntityState.Modified));
+                  && (x.State == EntityState.Added || x.State == EntityState.Modified))
+              .ToList();
             await base.SaveChangesAsync();
             foreach (var entry in modifiedEntries)
             {

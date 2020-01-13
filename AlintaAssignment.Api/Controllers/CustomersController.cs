@@ -20,9 +20,13 @@ namespace AlintaAssignment.Api.Controllers
 
         // GET: api/Customers
         [HttpGet]
-        public async Task<IEnumerable<Customer>> GetCustomers(string name)
+        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers(string name)
         {
-            return await _customerManager.FindCustomerByNameAsync(name);
+           var customers = await _customerManager.FindCustomerByNameAsync(name);
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            return Ok(customers);
         }
 
         // PUT: api/Customers/5
@@ -40,7 +44,7 @@ namespace AlintaAssignment.Api.Controllers
         [HttpPost]
         public async Task<Guid> PostCustomer(Customer customer)
         {
-            return await _customerManager.EditCustomerAsync(customer);
+            return await _customerManager.AddCustomerAsync(customer);
         }
 
         // DELETE: api/Customers/5

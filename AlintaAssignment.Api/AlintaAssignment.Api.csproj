@@ -19,7 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Shared\AlintaAssignment.Data\AlintaAssignment.Data.csproj" />
     <ProjectReference Include="..\Shared\AlintaAssignment.DomainLogic\AlintaAssignment.DomainLogic.csproj" />
-    <ProjectReference Include="..\Shared\AlintaAssignment.Repositories\AlintaAssignment.Store.csproj" />
   </ItemGroup>
 
 

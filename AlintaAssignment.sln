@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlintaAssignment.Data", "Sh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlintaAssignment.Api", "AlintaAssignment.Api\AlintaAssignment.Api.csproj", "{F260C97F-F9C9-41D5-AC1F-C4A33DF7B100}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlintaAssignment.Store", "Shared\AlintaAssignment.Store\AlintaAssignment.Store.csproj", "{F19B40CC-D500-4B6D-A023-F07BDD9F47F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlintaAssignment.Store", "Shared\AlintaAssignment.Store\AlintaAssignment.Store.csproj", "{F19B40CC-D500-4B6D-A023-F07BDD9F47F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlintaAssignment.DomainLogic", "Shared\AlintaAssignment.DomainLogic\AlintaAssignment.DomainLogic.csproj", "{7C5BB526-F7E9-4EFA-98A8-35A7AECA0F3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlintaAssignment.DomainLogic", "Shared\AlintaAssignment.DomainLogic\AlintaAssignment.DomainLogic.csproj", "{7C5BB526-F7E9-4EFA-98A8-35A7AECA0F3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UT", "UT\UT.csproj", "{558A71CF-0778-42E4-8100-011B27DFB3C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{7C5BB526-F7E9-4EFA-98A8-35A7AECA0F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5BB526-F7E9-4EFA-98A8-35A7AECA0F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C5BB526-F7E9-4EFA-98A8-35A7AECA0F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558A71CF-0778-42E4-8100-011B27DFB3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558A71CF-0778-42E4-8100-011B27DFB3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558A71CF-0778-42E4-8100-011B27DFB3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558A71CF-0778-42E4-8100-011B27DFB3C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
