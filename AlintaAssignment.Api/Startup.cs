@@ -1,3 +1,4 @@
+using AlintaAssignment.Api.Extensions;
 using AlintaAssignment.Data;
 using AlintaAssignment.DomainLogic;
 using AlintaAssignment.Repositories.Store;
@@ -8,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace AlintaAssignment.Api
 {
@@ -29,13 +29,9 @@ namespace AlintaAssignment.Api
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork)); services.AddControllers();
             services.AddScoped(typeof(ICustomerManager), typeof(CustomerManager)); services.AddControllers();
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new Info { Title = "Core Api", Description = "Swagger Core Api" });
-            //});
+            services.AddTransient<CustomLoggingExceptionFilter>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -53,12 +49,6 @@ namespace AlintaAssignment.Api
             {
                 endpoints.MapControllers();
             });
-
-            //app.UseSwagger();
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Core Api");
-            //});
         }
     }
 }

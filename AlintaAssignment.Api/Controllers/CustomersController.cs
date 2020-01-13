@@ -4,10 +4,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AlintaAssignment.Domain.Models;
 using AlintaAssignment.DomainLogic;
+using AlintaAssignment.Api.Extensions;
 
 namespace AlintaAssignment.Api.Controllers
 {
     [Route("api/[controller]")]
+    [ServiceFilter(typeof(CustomLoggingExceptionFilter))]
     [ApiController]
     public class CustomersController : ControllerBase
     {
