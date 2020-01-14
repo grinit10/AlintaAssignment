@@ -44,6 +44,9 @@ namespace AlintaAssignment.Repositories.Store
         public async Task Delete(Guid id)
         {
             var entity = await FindByConditionAsync(e => e.Id == id);
+            if (entity == null)
+                throw new Exception("No Matching Customer");
+
             RepositoryContext.Set<T>().Remove(entity.First());
         }
     }

@@ -10,6 +10,6 @@ namespace AlintaAssignment.DomainLogic
         Task<IEnumerable<Customer>> FindCustomerByNameAsync(string name);
         Task<Guid> AddCustomerAsync(Customer customer);
         Task<Guid> EditCustomerAsync(Customer customer);
-        Task DeleteCustomer(string id);
+        Task<Guid> DeleteCustomerAsync(string id);
     }
 }

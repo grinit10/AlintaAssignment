@@ -30,6 +30,7 @@ namespace AlintaAssignment.Api
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork)); services.AddControllers();
             services.AddScoped(typeof(ICustomerManager), typeof(CustomerManager)); services.AddControllers();
             services.AddTransient<CustomLoggingExceptionFilter>();
+            services.AddScoped<ValidateModelAttribute>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

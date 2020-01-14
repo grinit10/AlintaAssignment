@@ -8,9 +8,10 @@ using AlintaAssignment.Api.Extensions;
 
 namespace AlintaAssignment.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ServiceFilter(typeof(CustomLoggingExceptionFilter))]
     [ApiController]
+    [ServiceFilter(typeof(CustomLoggingExceptionFilter))]
+    [Route("api/[controller]")]
+    [ValidateModel]
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerManager _customerManager;
@@ -22,11 +23,14 @@ namespace AlintaAssignment.Api.Controllers
 
         // GET: api/Customers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers(string name)
+        public async Task<ActionResult<IEnumerable<Customer>>> FindCustomers(string name)
         {
-           var customers = await _customerManager.FindCustomerByNameAsync(name);
-            if (!ModelState.IsValid)
+            if (string.IsNullOrEmpty(name))
                 return BadRequest();
+
+            var customers = await _customerManager.FindCustomerByNameAsync(name);
+            if (customers == null)
+                return NotFound();
 
             return Ok(customers);
         }
@@ -35,25 +39,36 @@ namespace AlintaAssignment.Api.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<Guid> PutCustomer(Customer customer)
+        public async Task<ActionResult<Guid>> PutCustomer(Customer customer)
         {
-            return await _customerManager.EditCustomerAsync(customer);
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var updatedId = await _customerManager.EditCustomerAsync(customer);
+            if (updatedId == null)
+                return BadRequest();
+
+            return Ok(updatedId);
         }
 
         // POST: api/Customers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<Guid> PostCustomer(Customer customer)
+        public async Task<ActionResult<Guid>> PostCustomer(Customer customer)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
             return await _customerManager.AddCustomerAsync(customer);
         }
 
         // DELETE: api/Customers/5
         [HttpDelete("{id}")]
-        public async Task DeleteCustomer(string id)
+        public async Task<ActionResult<Guid>> DeleteCustomer(string id)
         {
-            await _customerManager.DeleteCustomer(id);
+            var DeletedId = await _customerManager.DeleteCustomerAsync(id);
+            return DeletedId;
         }
     }
 }
