@@ -2,7 +2,7 @@
 using AlintaAssignment.DomainLogic;
 using AlintaAssignment.Repositories.Store;
 using AlintaAssignment.Store;
-using AlintaEnergy.WebAPi.Extensions;
+using AlintaAssignment.WebAPi.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
-namespace AlintaEnergy.WebAPi
+namespace AlintaAssignment.WebAPi
 {
     public class Startup
     {

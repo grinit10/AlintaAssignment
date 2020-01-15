@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AlintaAssignment.Domain.Models;
 using AlintaAssignment.DomainLogic;
-using AlintaEnergy.WebAPi.Extensions;
+using AlintaAssignment.WebAPi.Extensions;
 using AlintaAssignment.Domain.ViewModels;
 
-namespace AlintaEnergy.WebApi.Controllers
+namespace AlintaAssignment.WebApi.Controllers
 {
     [ApiController]
     [ServiceFilter(typeof(CustomLoggingExceptionFilter))]

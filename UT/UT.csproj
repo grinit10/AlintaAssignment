@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AlintaEnergy.WebAPi\AlintaEnergy.WebAPi.csproj" />
+    <ProjectReference Include="..\AlintaAssignment.WebAPi\AlintaAssignment.WebAPi.csproj" />
   </ItemGroup>
 
 </Project>

@@ -35,7 +35,6 @@ namespace UT.Store
 
             MockDbContext.Setup(db => db.Set<Customer>()).Returns(() => DbSetTestCustomers.Object);
             MockDbContext.Setup(db => db.Customers).Returns(() => DbSetTestCustomers.Object);
-            //MockDbContext.Setup(db => db.Set<Customer>().Remove(TestCustomers[0])).Returns(() => DbSetTestCustomers.Object);
         }
     }
 }

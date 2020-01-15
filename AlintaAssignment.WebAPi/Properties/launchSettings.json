@@ -18,7 +18,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "AlintaEnergy.WebAPi": {
+    "AlintaAssignment.WebAPi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

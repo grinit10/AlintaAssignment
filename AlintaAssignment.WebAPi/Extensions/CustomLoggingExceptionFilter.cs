@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace AlintaEnergy.WebAPi.Extensions
+namespace AlintaAssignment.WebAPi.Extensions
 {
     public class CustomLoggingExceptionFilter : ExceptionFilterAttribute
     {
