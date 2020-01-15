@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using AlintaAssignment.Domain.Models;
 using AlintaAssignment.DomainLogic;
 using AlintaEnergy.WebAPi.Extensions;
+using AlintaAssignment.Domain.ViewModels;
 
 namespace AlintaEnergy.WebApi.Controllers
 {
@@ -51,9 +52,14 @@ namespace AlintaEnergy.WebApi.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Guid>> PostCustomer(Customer customer)
+        public async Task<ActionResult<Guid>> PostCustomer(PostCustomerVm customer)
         {
-            return await _customerManager.AddCustomerAsync(customer);
+            return await _customerManager.AddCustomerAsync(new Customer 
+            {
+                DateOfBirth = customer.DateOfBirth,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName
+            });
         }
 
         // DELETE: api/Customers/5
