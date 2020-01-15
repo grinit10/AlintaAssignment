@@ -11,7 +11,6 @@ namespace AlintaAssignment.Api.Controllers
     [ApiController]
     [ServiceFilter(typeof(CustomLoggingExceptionFilter))]
     [Route("api/[controller]")]
-    [ValidateModel]
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerManager _customerManager;
@@ -41,9 +40,6 @@ namespace AlintaAssignment.Api.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Guid>> PutCustomer(Customer customer)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-
             var updatedId = await _customerManager.EditCustomerAsync(customer);
             if (updatedId == null)
                 return BadRequest();
@@ -57,9 +53,6 @@ namespace AlintaAssignment.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Guid>> PostCustomer(Customer customer)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-
             return await _customerManager.AddCustomerAsync(customer);
         }
 

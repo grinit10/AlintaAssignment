@@ -4,11 +4,14 @@ using AlintaAssignment.DomainLogic;
 using AlintaAssignment.Repositories.Store;
 using AlintaAssignment.Store;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 
 namespace AlintaAssignment.Api
 {
@@ -30,7 +33,6 @@ namespace AlintaAssignment.Api
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork)); services.AddControllers();
             services.AddScoped(typeof(ICustomerManager), typeof(CustomerManager)); services.AddControllers();
             services.AddTransient<CustomLoggingExceptionFilter>();
-            services.AddScoped<ValidateModelAttribute>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -41,6 +43,16 @@ namespace AlintaAssignment.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseExceptionHandler(a => a.Run(async context =>
+            {
+                var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+                var exception = exceptionHandlerPathFeature.Error;
+
+                var result = JsonConvert.SerializeObject(new { error = exception.Message });
+                context.Response.ContentType = "application/json";
+                await context.Response.WriteAsync(result);
+            }));
 
             app.UseRouting();
 
