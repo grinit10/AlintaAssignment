@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
 namespace AlintaAssignment.Api
@@ -33,10 +34,19 @@ namespace AlintaAssignment.Api
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork)); services.AddControllers();
             services.AddScoped(typeof(ICustomerManager), typeof(CustomerManager)); services.AddControllers();
             services.AddTransient<CustomLoggingExceptionFilter>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Customers API", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Customers API V1");
+            });
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -17,7 +17,7 @@ namespace AlintaAssignment.DomainLogic
 
         public async Task<IEnumerable<Customer>> FindCustomerByNameAsync(string name)
         {
-            var customers = await _unitOfWork.CustomerRepository.FindByConditionAsync(c => c.FirstName.ToUpper().Equals(name.ToUpper()) || c.LastName.ToUpper().Equals(name.ToUpper()));
+            var customers = await _unitOfWork.CustomerRepository.FindByConditionAsync(c => c.FirstName.ToUpper().Contains(name.ToUpper()) || c.LastName.ToUpper().Contains(name.ToUpper()));
             return customers;
         }
         public async Task<Guid> AddCustomerAsync(Customer customer)

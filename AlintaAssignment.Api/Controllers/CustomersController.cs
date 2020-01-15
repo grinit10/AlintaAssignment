@@ -34,10 +34,10 @@ namespace AlintaAssignment.Api.Controllers
             return Ok(customers);
         }
 
-        // PUT: api/Customers/5
+        // PUT: api/Customers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<ActionResult<Guid>> PutCustomer(Customer customer)
         {
             var updatedId = await _customerManager.EditCustomerAsync(customer);
