@@ -32,6 +32,7 @@ namespace UT.DomainLogic
             var result = await SystemUnderTest.FindCustomerByNameAsync("Arnab");
 
             Assert.Equal(3, result.Count());
+            Assert.Equal(TestCustomers[0], result.First());
         }
     }
 }
