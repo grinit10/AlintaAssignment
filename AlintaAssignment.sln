@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlintaAssignment.Store", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlintaAssignment.DomainLogic", "Shared\AlintaAssignment.DomainLogic\AlintaAssignment.DomainLogic.csproj", "{7C5BB526-F7E9-4EFA-98A8-35A7AECA0F3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UT", "UT\UT.csproj", "{558A71CF-0778-42E4-8100-011B27DFB3C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UT", "UT\UT.csproj", "{558A71CF-0778-42E4-8100-011B27DFB3C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlintaEnergy.WebAPi", "AlintaEnergy.WebAPi\AlintaEnergy.WebAPi.csproj", "{50573624-47D7-4352-84AA-D76C95B17AAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{558A71CF-0778-42E4-8100-011B27DFB3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{558A71CF-0778-42E4-8100-011B27DFB3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{558A71CF-0778-42E4-8100-011B27DFB3C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50573624-47D7-4352-84AA-D76C95B17AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50573624-47D7-4352-84AA-D76C95B17AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50573624-47D7-4352-84AA-D76C95B17AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50573624-47D7-4352-84AA-D76C95B17AAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
