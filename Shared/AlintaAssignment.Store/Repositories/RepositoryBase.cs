@@ -25,9 +25,14 @@ namespace AlintaAssignment.Repositories.Store
 
         public async Task<IEnumerable<T>> FindByConditionAsync(Expression<Func<T, bool>> expression)
         {
-            var query = RepositoryContext.Set<T>().Where(expression);
-            typeof(T).GetProperties().ToList().ForEach(p => query.Include(p.Name));
-            return await query.ToListAsync();
+            var task = Task.Run(() =>
+            {
+                var query = RepositoryContext.Set<T>().Where(expression);
+                typeof(T).GetProperties().ToList().ForEach(p => query.Include(p.Name));
+                return query.ToList();
+            });
+
+            return await task;
         }
 
         public T Create(T entity)
@@ -41,7 +46,7 @@ namespace AlintaAssignment.Repositories.Store
             RepositoryContext.Set<T>().Update(entity);
         }
 
-        public async Task Delete(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
             var entity = await FindByConditionAsync(e => e.Id == id);
             if (!entity.Any())

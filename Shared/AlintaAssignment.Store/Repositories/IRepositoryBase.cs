@@ -11,6 +11,6 @@ namespace AlintaAssignment.Repositories.Store
         Task<IEnumerable<T>> FindByConditionAsync(Expression<Func<T, bool>> expression);
         T Create(T entity);
         void Update(T entity);
-        Task Delete(Guid id);
+        Task DeleteAsync(Guid id);
     }
 }

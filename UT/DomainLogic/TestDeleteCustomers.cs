@@ -1,5 +1,4 @@
-﻿using AlintaAssignment.Domain.Models;
-using Moq;
+﻿using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +16,7 @@ namespace UT.DomainLogic
         [Fact]
         public async Task CustomerIsDeletedSuccessfully()
         {
-            MockUnitOfWOrk.Setup(p => p.CustomerRepository.Delete(It.IsAny<Guid>()));
+            MockUnitOfWOrk.Setup(p => p.CustomerRepository.DeleteAsync(It.IsAny<Guid>()));
             MockUnitOfWOrk.Setup(m => m.SaveAsync())
                 .ReturnsAsync(() =>
                 new List<Guid>() { TestCustomers[0].Id }.AsEnumerable());

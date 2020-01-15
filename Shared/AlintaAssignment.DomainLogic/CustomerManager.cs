@@ -29,7 +29,7 @@ namespace AlintaAssignment.DomainLogic
 
         public async Task<Guid> DeleteCustomerAsync(string id)
         {
-            await _unitOfWork.CustomerRepository.Delete(new Guid(id));
+            await _unitOfWork.CustomerRepository.DeleteAsync(new Guid(id));
             var ids = await _unitOfWork.SaveAsync();
             return ids.First();
         }
